@@ -27,35 +27,6 @@ public class Insert {
         System.out.println("Insert at end: Optimal (N)");
         insertAtEndOptimal(6);
         traverse();
-
-        System.out.println("Delete from kth position");
-        deleteAtPos(1);
-        deleteAtPos(5);
-        deleteAtPos(3);
-        traverse();
-    }
-
-    private static void deleteAtPos(int pos) {
-        if (pos == 1) {
-            if (head == null || head.next == head)
-                head = null;
-            else {
-                /*
-                Node curr = head;
-                while (curr.next != head)
-                    curr = curr.next;
-                curr.next = head.next;
-                head = curr.next;*/
-                /*O(1)*/
-                head.data = head.next.data;
-                head.next = head.next.next;
-            }
-        } else {
-            Node curr = head;
-            for (int i = 1; i < pos - 1; i++)
-                curr = curr.next;
-            curr.next = curr.next.next;
-        }
     }
 
     private static void insertAtEndOptimal(int x) {
