@@ -2,6 +2,7 @@ package linkedlist.singlell;
 
 /*
  * Deletetion in linkedlist: begin, mid, end
+ * Delete given node, last node cant be deleted using this node
  * Traversal: iterative
  * */
 public class Delete {
@@ -15,14 +16,25 @@ public class Delete {
         node2.next = node3;
         node3.next = node4;
         node4.next = node5;
+        deleteNode(node2);
+        printList(head);
+
+        System.out.println();
         head = deleteFromBeginning(head); //O(1)
         printList(head);
+
         System.out.println();
         head = deleteFromMiddle(head, 30);
         printList(head);
         System.out.println();
+
         head = deleteFromEnd(head);//O(n)
         printList(head);
+    }
+
+    private static void deleteNode(Node del) {
+        del.data=del.next.data;
+        del.next=del.next.next;
     }
 
     private static Node deleteFromEnd(Node head) {
