@@ -67,7 +67,7 @@ public class Delete {
         return head.next;
     }
 
-    private static void printList(Node head) {
+    static void printList(Node head) {
         Node curr = head;
         while (curr != null) {
             System.out.print(curr.data + " ");

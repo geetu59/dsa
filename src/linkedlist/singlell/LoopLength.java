@@ -2,12 +2,17 @@ package linkedlist.singlell;
 
 import java.util.HashSet;
 
-/* find length of loop, 1->2->3->4->5->2 point back
- * Detect loop:
+import static linkedlist.singlell.Delete.printList;
+
+/* Problem 1: Detect loop:
  * Sol 1: Traverse twice O(N^2)
  * Sol 2: Modify Node structure to include boolean visited O(N)
  * Sol 3: Modification of linkedlist references as we point each node to Node temp and if we find that a node is already pointing to temp then loop is there
  * Sol 4: O(N) time and space, insert nodes in hashset and search if node is already there then it's a loop
+ * Sol 5: Floyd's Cycle Detection where we have slow and fast ptr O(m+n), m=nodes traversed which were not in loop, n= nodes in loop, we say it is O(N), N=nodes in ll
+ * Problem 2: find length of loop, 1->2->3->4->5->2 point back
+ * Problem 3: Find first node of loop
+ * Problem 4: Remove loop
  * */
 public class LoopLength {
     public static void main(String[] args) {
@@ -49,7 +54,81 @@ public class LoopLength {
         //Sol 4
         System.out.println(detectLoopUsingHashSet(head));
 
+        //Sol 5: FLoyd's cycle detection
+        System.out.println(detectLoopFloyd(head));
+
+        //Problem 2: find length of loop
         System.out.println(lengthOfLoop(head));
+
+        //Problem 3: Find first node of loop
+        System.out.println(firstNode(head).data);
+
+        //Problem 4: Remove loop
+        removeLoop(head);
+        printList(head);
+    }
+
+    private static Node firstNode(Node head) {
+        Node slow=head;
+        Node fast=head;
+        while (slow!=null && fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if (slow==fast)
+                break;
+        }
+        if (slow!=fast) return null;
+        if (fast==head) return head;
+        slow=head;
+        while (slow!=fast){
+            slow=slow.next;
+            fast=fast.next;
+        }
+            return slow;
+    }
+
+    private static boolean detectLoopFloyd(Node head) {
+        Node slow=head;
+        Node fast=head;
+        while (slow!=null && fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if (slow==fast)
+                return true;
+        }
+        return false;
+    }
+
+    private static void removeLoop(Node head) {
+        if (head == null) return;
+        Node slow = head;
+        Node fast = head;
+        //Detect loop, if we've 3 nodes(no loop), fast will point to third node and on fast.next.next,
+        // we will get null ptr and if 4 nodes are there, then fast=null and hence this condiiton in while loop
+        while (slow != null && fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            //This condition comes after updating slow and fast as both are pointing to head initially and this condition will become true in that case
+            if (slow == fast)
+                break;
+        }
+        //means loop doesnt exist
+        if (slow!=fast) return;
+        slow = head;
+        //if loop starts from first node only then head and fast both points to head and hence handle separately to remove loop
+        if (fast==head)
+        {
+            while (fast.next!=slow)
+                fast=fast.next;
+            fast.next=null;
+            return;
+        }
+        //ideally slow==fast then we will reach common node but since we need previous one as we wanted to point that to null and hence we checkeed next, though we can use prev ptr also
+        while (slow.next != fast.next) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        fast.next=null;
     }
 
     private static boolean detectLoopUsingHashSet(Node head) {
