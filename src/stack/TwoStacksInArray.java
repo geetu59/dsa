@@ -36,11 +36,12 @@ public class TwoStacksInArray {
     }
 
     int pop1() {
+        int x;
         if (top1 != -1) {
-            arr[top1]--;
+            x=arr[top1];
             top1--;
         } else return -1;
-        return 0;
+        return x;
     }
 
     int peek1() {
@@ -66,11 +67,12 @@ public class TwoStacksInArray {
     }
 
     int pop2() {
+        int x;
         if (top2 != capacity / 2 - 1) {
-            arr[top2]--;
+            x = arr[top2];
             top2--;
         } else return -1;
-        return 0;
+        return x;
     }
 
     int peek2() {
