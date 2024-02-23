@@ -17,7 +17,7 @@ import static stack.PreviousSmallest.previousSmallest;
  * Efficient sol: We will evaluate the element when we pop, not when we push(the way we did in stock span problem). O(N) time and space.
  * Space becaz only single stack is used and time becaz all elements are pushed and popped only once. N push and N pop operations so 2N.
  */
-public class LargestRectangularArea {
+public class Histogram {
     public static void main(String[] args) {
         int arr[] = {60, 20, 50, 40, 10, 50, 60};
 
