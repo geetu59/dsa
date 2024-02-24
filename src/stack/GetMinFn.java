@@ -110,6 +110,7 @@ public class GetMinFn {
             // but we have only stack and min var, so taking advantage of the fact that all values in stack are +, we
             // will store x-min. If we pop, then min is returned and min-pop will be our new min
             min = x;
+            /*Why did we do 2x? we know x<=min and this is what we want so, 2x-min should also be less than x, x-min<=0, x-min + x<= 0+x, 2x-min<=x, proved)*/
             stack1.push(2 * x - min);
         } else
             stack1.push(x);
