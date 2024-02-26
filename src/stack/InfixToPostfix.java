@@ -11,6 +11,7 @@ readable and solvable by humans whereas the computer cannot differentiate the op
 convert the expression to postfix(or prefix) form before evaluation.
 The corresponding expression in postfix form is abc*+d+. The postfix expressions can be evaluated easily using a stack.
 Time and space: O(N)
+We are traversing thru' array once, so theta(N). For each operand, we print it -> o(1) work. For every operator, we do push->O(1) and pop->O(1), so overall complexity iis O(N)
 Steps: Traverse from left to right. For each char, check if it's
 1. operand: output it
 2. (: push it
@@ -20,6 +21,7 @@ a. if stack is empty then push it
 b. Higher precedence than stack top, push it
 c. Lower precedence: Pop until higher precedence is found
 d. same precedence, use associativity
+5. Pop all elements from stack
 Stack will always have higher precedence element on top and will always contain operators
 */
 public class InfixToPostfix {
@@ -64,7 +66,7 @@ public class InfixToPostfix {
         return result;
     }
 
-    private static int precedence(char c) {
+    public static int precedence(char c) {
         switch (c) {
             case '+':
             case '-':
