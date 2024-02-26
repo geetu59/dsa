@@ -36,7 +36,7 @@ public class Postfix {
         return stack.pop();
     }
 
-    private static int evaluate(int o1, int o2, char c) {
+    public static int evaluate(int o1, int o2, char c) {
         switch (c) {
             case '*':
                 return o2 * o1;
