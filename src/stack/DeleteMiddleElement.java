@@ -20,27 +20,27 @@ public class DeleteMiddleElement {
 
     private static void delMid(ArrayDeque<Integer> s, int size) {
         ArrayDeque<Integer> stack = new ArrayDeque<>();
-        int mid=(size+1)/2;
-        if(size%2==0){
-            for(int i=1;i<mid+1;i++){
+        int mid = (size + 1) / 2;
+        if (size % 2 == 0) {
+            for (int i = 1; i < mid + 1; i++) {
                 stack.push(s.pop());
             }
             s.pop();
-            while(!stack.isEmpty()){
+            while (!stack.isEmpty()) {
                 s.push(stack.pop());
             }
-        } else{
-            for(int i=1;i<mid;i++){
+        } else {
+            for (int i = 1; i < mid; i++) {
                 stack.push(s.pop());
             }
             s.pop();
-            while(!stack.isEmpty()){
+            while (!stack.isEmpty()) {
                 s.push(stack.pop());
             }
         }
 
-        for(int i=1;i<size;i++){
-            System.out.print(s.pop()+" ");
+        for (int i = 1; i < size; i++) {
+            System.out.print(s.pop() + " ");
         }
     }
 }
