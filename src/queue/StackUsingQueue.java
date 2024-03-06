@@ -7,8 +7,8 @@ import java.util.Queue;
  * To implement this we have 4 approaches:
  * 1. Implement stack using 2 queues by making push operation costly i.e. O(N), other being O(1)
  * 2. by making pop() operation costly i.e. O(N), other being O(1)
- * 3. By using 1 queue, iteratively O(N) push
- * 4. by using 1 queue, recursively O(N) push*/
+ * 3. By using 1 queue, iteratively O(N) push costly
+ * 4. by using 1 queue, recursively O(N) push costly*/
 public class StackUsingQueue {
     //q1 will be actual queue and q2 will be auxiliary queue
     static Queue<Integer> q2;
