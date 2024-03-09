@@ -7,14 +7,14 @@ import static linkedlist.singlell.Delete.printList;
 /* Problem 1: Detect loop:
  * Sol 1: Traverse twice O(N^2)
  * Sol 2: Modify Node structure to include boolean visited O(N)
- * Sol 3: Modification of linkedlist references as we point each node to Node temp and if we find that a node is already pointing to temp then loop is there
+ * Sol 3: Modification of linked-list references as we point each node to Node temp and if we find that a node is already pointing to temp then loop is there
  * Sol 4: O(N) time and space, insert nodes in hashset and search if node is already there then it's a loop
  * Sol 5: Floyd's Cycle Detection where we have slow and fast ptr O(m+n), m=nodes traversed which were not in loop, n= nodes in loop, we say it is O(N), N=nodes in ll
  * Problem 2: find length of loop, 1->2->3->4->5->2 point back
  * Problem 3: Find first node of loop
  * Problem 4: Remove loop
  * */
-public class LoopLength {
+public class DetectLoop {
     public static void main(String[] args) {
         Node head = new Node(1);
         Node node2 = new Node(2);
