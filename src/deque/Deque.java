@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Stack;
 
 /*1. Use built-in deque: Since it implements queue also and hence it has all methods of queue, so dont use offer/add/poll, use deque specific methods
- * 2. Delete items in deque at specific position, in range, all elements in deque*/
+ * 2. Delete items in deque at specific position, in range, all elements in deque in O(N) time*/
 public class Deque {
     public static void main(String[] args) {
         java.util.Deque<Integer> deque = new LinkedList<>();
