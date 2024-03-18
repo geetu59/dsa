@@ -6,7 +6,7 @@ import java.util.Queue;
 /*You are given 2 arrays, 1 which contains petrol in n petrol pumps and other which contains distance of petrol pump from p[i] to p[i+1].
  * From which petrol pump should we start so that we do not loose out petrol in between. Print position not index as an output.
  * Approach 1: Using array. Time: O(N*N) Space:O(1) Implemented in deque folder
- * Approach 2: Using queue. O(N) time and space. Add and remove an item once. */
+ * Approach 2: Using queue. O(N) time and space. Add twice and remove an item once max. */
 public class CircularTour {
     public static void main(String[] args) {
         int petrol[] = {55, 52, 33, 100};
