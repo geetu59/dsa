@@ -1,7 +1,6 @@
-package array;
+package array.UpdateSameArray;
 
 import java.util.Arrays;
-import java.util.HashMap;
 
 /*Given an array arr[] of size N where every element is in the range from 0 to n-1. Rearrange the given array so that the
  transformed array arrT[i] becomes arr[arr[i]].
@@ -14,7 +13,7 @@ arr[arr[3]] = arr[1] = 0
 arr[arr[4]] = arr[3] = 1
 and so on. So, arrT becomes {3, 4, 2, 0, 1}
 Naive sol: O(N) time and space. Start storing elements in other array. If you make changes in current array, you will
-loose track of element which was already present at that position.
+lose track of element which was already present at that position.
 Efficient sol: The array elements of the given array lies from 0 to n-1. Now an array element is needed that can store two
 different values(current and new once) at the same time. To achieve this every element at ith index is incremented by
 (arr[arr[i]] % n)*n.After the increment operation of first step, every element holds both old values and new values.
@@ -38,8 +37,6 @@ public class Arrange {
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i] / arr.length);
         }
-        HashMap<String, String> stringStringHashMap = new HashMap<>();
-        stringStringHashMap.put("1", "asas");
     }
 
     private static void arrange(int[] arr) {
