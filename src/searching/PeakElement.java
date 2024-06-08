@@ -27,7 +27,7 @@ public class PeakElement {
             if ((mid == 0 || arr[mid] >= arr[mid - 1]) && (mid == n - 1 || arr[mid] >= arr[mid + 1])) {
                 return arr[mid];
             }
-            if (arr[mid - 1] >= arr[mid])
+            if (mid!=0 && arr[mid - 1] >= arr[mid])
                 high = mid - 1;
             else low = mid + 1;
         }
